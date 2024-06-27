@@ -11,7 +11,7 @@ const NavBar = () => {
       >
         <h1 className="font-glitch-font text-[50px]">THUNDERHACK</h1>
       </Link>
-      <nav className="ml-auto flex gap-4 sm:gap-6 text-center flex justify-center items-center">
+      <nav className="ml-auto gap-4 sm:gap-6 text-center flex justify-center items-center">
         <Link
           href="#features"
           className="text-sm font-medium hover:underline underline-offset-4"
