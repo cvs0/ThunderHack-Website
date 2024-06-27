@@ -5,7 +5,7 @@ const NavBar = () => {
   return (
     <header className="px-4 lg:px-6 h-14 flex items-center sticky top-0  backdrop-filter backdrop-blur-lg bg-opacity-30 border-b border-gray-200 dark:border-gray-700 z-40">
       <Link
-        href="#"
+        href="/"
         className="flex items-center justify-center"
         prefetch={false}
       >
