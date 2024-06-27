@@ -1,4 +1,5 @@
 import Footer from "@/components/footer";
+import NavBar from "@/components/navbar";
 import ProgressBar from "@/components/progress-bar";
 import { ThemeProvider } from "@/components/theme-provider";
 import type { Metadata } from "next";
@@ -26,6 +27,7 @@ export default function RootLayout({
       >
         <body className={inter.className} suppressHydrationWarning>
           <ProgressBar />
+          <NavBar />
           <main>{children}</main>
           <Footer />
         </body>

@@ -4,7 +4,6 @@ import CommunitySection from "@/components/community-section";
 import GithubSection from "@/components/github-section";
 import GuiSection from "@/components/gui-section";
 import ModulesSection from "@/components/modules-section";
-import NavBar from "@/components/navbar";
 import StatsSection from "@/components/stats-section";
 import VideoSection from "@/components/video-section";
 import useGitHubDownloads from "@/hooks/useGithubDownloads";
@@ -38,7 +37,6 @@ export default function Home() {
 
   return (
     <div className="flex flex-col min-h-[100dvh]">
-      <NavBar />
       <main className="flex-1">
         <section className="w-full py-12 md:py-24 lg:py-32 relative overflow-hidden">
           <div className="container px-4 md:px-6">
