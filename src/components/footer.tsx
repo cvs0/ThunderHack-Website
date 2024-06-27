@@ -6,7 +6,7 @@ const Footer = () => {
         </p>
   
         <span className="text-xs text-muted-foreground self-end">
-          Developed by cvs0
+          Developed by <a className="text-emerald-500 font-extrabold" href="https://discord.com/users/1147380185893716068">cvs0</a>
         </span>
       </footer>
     );
