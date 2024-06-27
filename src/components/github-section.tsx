@@ -1,5 +1,4 @@
 import { GithubIcon } from "lucide-react";
-import Link from "next/link";
 
 const GithubSection = () => {
   return (
@@ -10,7 +9,9 @@ const GithubSection = () => {
             Open Source
           </h1>
           <p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-            All of our projects are open source and available on GitHub. We are open to contributions from the community to further improve our projects.
+            All of our projects are open source and available on GitHub. We are
+            open to contributions from the community to further improve our
+            projects.
           </p>
         </div>
 

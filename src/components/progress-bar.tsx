@@ -1,6 +1,6 @@
-"use client"
+"use client";
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
 const ProgressBar = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -15,10 +15,10 @@ const ProgressBar = () => {
       setScrollProgress(scroll);
     };
 
-    window.addEventListener('scroll', scrollListener);
+    window.addEventListener("scroll", scrollListener);
 
     return () => {
-      window.removeEventListener('scroll', scrollListener);
+      window.removeEventListener("scroll", scrollListener);
     };
   }, []);
 
