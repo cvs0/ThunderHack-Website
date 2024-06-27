@@ -1,4 +1,5 @@
 import useTotalUsers from "@/hooks/useTotalUsers";
+import { Skeleton } from "./ui/skeleton";
 
 const formatNumber = (number: number) => {
   if (number >= 1000000) {
@@ -28,7 +29,10 @@ const StatsSection = ({ downloads }: { downloads: number }) => {
             <p className="text-lg text-gray-600">Downloads</p>
           </div>
           <div className="flex flex-col items-center">
-            <h2 className="text-4xl font-bold">{totalUsersCount}</h2>
+            <h2 className="text-4xl font-bold">
+              {isLoading ? <Skeleton className="h-10 w-20" /> : totalUsersCount}
+            </h2>
+
             <p className="text-lg text-gray-600">Active Users</p>
           </div>
           <div className="flex flex-col items-center">
