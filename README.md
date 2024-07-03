@@ -8,7 +8,7 @@ This is the website for Thunderhack, written in Typescript and using NextJS.
 
 ## Credits
 
-- **WEBSITE** : cvs0
+- **WEBSITE** : cvs0 & 06ED
 - **THUNDERHACK** : 06ED & Pan4ur
 
 ## Tech Stack
