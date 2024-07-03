@@ -1,6 +1,5 @@
 "use client";
 
-import CommunitySection from "@/components/community-section";
 import GithubSection from "@/components/github-section";
 import GuiSection from "@/components/gui-section";
 import ModulesSection from "@/components/modules-section";
@@ -84,7 +83,6 @@ export default function Home() {
         <ModulesSection modules={modules} />
         <VideoSection />
         <GithubSection />
-        <CommunitySection />
       </main>
     </div>
   );

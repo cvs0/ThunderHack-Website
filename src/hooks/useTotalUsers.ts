@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 const fetchTotalUsers = async () => {
   const response = await fetch('/api/play');

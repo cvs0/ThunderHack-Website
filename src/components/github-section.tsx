@@ -1,75 +1,83 @@
-import { GithubIcon } from "lucide-react";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Button } from "@/components/ui/button";
+import axios from "axios";
+import { DiscIcon, GithubIcon, Twitter } from "lucide-react";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 
-const GithubSection = () => {
-  return (
-    <section className="relative w-full overflow-hidden" id="github">
-      <div className="container relative z-10 grid grid-cols-1 items-center gap-8 py-24 md:grid-cols-2 md:py-32 lg:py-40">
-        <div className="space-y-4">
-          <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none bg-gradient-to-r from-purple-500 to-sky-500 text-transparent bg-clip-text">
-            Open Source
-          </h1>
-          <p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-            All of our projects are open source and available on GitHub. We are
-            open to contributions from the community to further improve our
-            projects.
-          </p>
-        </div>
-
-        <div className="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 bg-gradient-to-l from-gray-200 via-fuchsia-200 to-stone-200 relative -skew-y-3">
-          <h5 className="mb-3 text-3xl font-extrabold text-gray-900">
-            GitHub Repos
-          </h5>
-          <p className="text-sm font-normal text-black">
-            Check our GitHub repositories for updates and more info.
-          </p>
-          <ul className="my-4 space-y-3">
-            <li>
-              <a
-                href="https://www.github.com/Pan4ur/ThunderHack-Recode"
-                target="_blank"
-                rel="noopener"
-                className="flex items-center p-3 text-base font-bold text-gray-900 rounded-lg bg-gray-50 hover:bg-gray-100 group hover:shadow"
-              >
-                <GithubIcon />
-                <span className="flex-1 ms-3 whitespace-nowrap">
-                  ThunderHack-Recode
-                </span>
-                <span className="inline-flex items-center justify-center px-2 py-0.5 ms-3 text-xs font-medium text-gray-500 bg-gray-200 rounded dark:bg-gray-700 dark:text-gray-400">
-                  Popular
-                </span>
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.github.com/Pan4ur/ThunderHackPlus"
-                target="_blank"
-                rel="noopener"
-                className="flex items-center p-3 text-base font-bold text-gray-900 rounded-lg bg-gray-50 hover:bg-gray-100 group hover:shadow"
-              >
-                <GithubIcon />
-                <span className="flex-1 ms-3 whitespace-nowrap">
-                  ThunderHackPlus
-                </span>
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.github.com/Pan4ur/ThunderHack-Updater"
-                target="_blank"
-                rel="noopener"
-                className="flex items-center p-3 text-base font-bold text-gray-900 rounded-lg bg-gray-50 hover:bg-gray-100 group hover:shadow"
-              >
-                <GithubIcon />
-                <span className="flex-1 ms-3 whitespace-nowrap">
-                  ThunderHack-Updater
-                </span>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
-  );
+type Contributor = {
+  login: string;
+  avatar_url: string;
+  html_url: string;
 };
 
-export default GithubSection;
+export default function GithubSection() {
+  const [contributors, setContributors] = useState<Contributor[]>([]);
+
+  useEffect(() => {
+    async function fetchContributors() {
+      try {
+        const response = await axios.get(
+          "https://api.github.com/repos/Pan4ur/ThunderHack-Recode/contributors"
+        );
+        setContributors(response.data.slice(0, 16));
+      } catch (error) {
+        console.error("Error fetching contributors:", error);
+      }
+    }
+    fetchContributors();
+  }, []);
+
+  return (
+    <div className="flex flex-col items-center justify-center min-h-screen text-white p-8">
+      <div className="flex flex-col md:flex-row gap-8">
+        <div className="grid grid-cols-4 gap-4">
+          {contributors.map((contributor, index) => (
+            <Link key={index} href={contributor.html_url}>
+              <Avatar className="w-24 h-24 rounded-lg border border-border">
+                <AvatarImage src={contributor.avatar_url} />
+                <AvatarFallback>{index + 1}</AvatarFallback>
+              </Avatar>
+            </Link>
+          ))}
+        </div>
+        <div className="flex flex-col justify-center">
+          <h1 className="text-4xl font-bold">
+            Crafted with passion <br />
+            <span className="bg-gradient-to-r from-purple-500 to-sky-500 text-transparent bg-clip-text">by a global community.</span>
+          </h1>
+
+          <p className="max-w-md">
+            The development of ThunderHack is driven by a dedicated team of
+            developers from across the globe. This innovative project combines
+            cutting-edge technology and community-driven insights to deliver a
+            top-tier experience. Join us in shaping the future of this all in
+            one Minecraft utility mod.
+          </p>
+
+          <div className="flex gap-4 mt-6">
+            <Link href="">
+              <Button variant="outline" className="flex items-center gap-2">
+                <DiscIcon className="h-5 w-5" />
+                Discord
+              </Button>
+            </Link>
+
+            <Link href="https://github.com/Pan4ur/ThunderHack-Recode">
+              <Button variant="outline" className="flex items-center gap-2">
+                <GithubIcon className="h-5 w-5" />
+                GitHub
+              </Button>
+            </Link>
+
+            <Link href="">
+              <Button variant="outline" className="flex items-center gap-2">
+                <Twitter className="h-5 w-5" />X / Twitter
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
