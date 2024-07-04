@@ -34,7 +34,7 @@ export default function GithubSection() {
         <div className="grid grid-cols-4 gap-4">
           {contributors.map((contributor, index) => (
             <Link key={index} href={contributor.html_url}>
-              <Avatar className="w-24 h-24 rounded-lg border border-border">
+              <Avatar className="rounded-lg border border-border w-20 h-20 md:w-24 md:h-24">
                 <AvatarImage src={contributor.avatar_url} />
                 <AvatarFallback>{index + 1}</AvatarFallback>
               </Avatar>

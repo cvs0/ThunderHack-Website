@@ -9,7 +9,7 @@ const NavBar = () => {
         className="flex items-center justify-center"
         prefetch={false}
       >
-        <h1 className="block md:hidden font-glitch-font text-xl">THUNDERHACK</h1> {/* Smaller text or logo for mobile */}
+        <h1 className="block md:hidden font-glitch-font text-xl">THUNDERHACK</h1>
         <h1 className="hidden md:block font-glitch-font text-[50px]">THUNDERHACK</h1>
       </Link>
       <nav className="ml-auto gap-2 sm:gap-6 text-center flex justify-center items-center">

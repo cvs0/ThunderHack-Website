@@ -4,11 +4,7 @@ const ModulesSection = ({ modules }: { modules: number }) => {
       <div className="container relative z-10 grid grid-cols-1 items-center gap-8 py-24 md:grid-cols-2 md:py-32 lg:py-40">
         <div className="relative z-20 group">
           <div
-            className="skew-y-6 overflow-hidden rounded-xl object-cover object-center absolute inset-0 z-10 bg-gray-200 text-center flex justify-center items-center relative bg-gradient-to-l from-gray-200 via-fuchsia-200 to-stone-200 border border-gray"
-            style={{
-              width: "600px",
-              height: "300px",
-            }}
+            className="skew-y-6 overflow-hidden rounded-xl object-cover object-center absolute inset-0 z-10 bg-gray-200 text-center flex justify-center items-center relative bg-gradient-to-l from-gray-200 via-fuchsia-200 to-stone-200 border border-gray w-[370px] h-[200px] md:w-[500px] md:h-[300px] lg:w-[600px] lg:h-[300px]"
           >
             <div className="flex flex-col justify-center items-center text-center ">
               <span className="text-8xl font-extrabold">

@@ -145,3 +145,16 @@
     ),
     linear-gradient(to right, hsl(var(--background) / 0.7), transparent 30%);
 }
+
+body,
+html {
+  overflow-x: visible; /* Set default overflow-x to visible */
+}
+
+/* Media query for small screens */
+@media screen and (max-width: 640px) {
+  body,
+  html {
+    overflow-x: hidden; /* Apply overflow-x: hidden; on small screens */
+  }
+}
