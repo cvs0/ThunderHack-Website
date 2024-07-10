@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 
 
 const useTotalUsers = () => {
-  const [totalUsersCount, setTotalUsersCount] = useState<number | null>(null);
+  const [totalUsersCount, setTotalUsersCount] = useState<number>(124);
 
   useEffect(() => {
     const getTotalUsers = async () => {

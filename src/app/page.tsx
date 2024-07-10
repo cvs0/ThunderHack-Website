@@ -78,7 +78,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <StatsSection onlineUsers={onlineUsers} allUsers={downloads} pr />
+        <StatsSection onlineUsers={onlineUsers} allUsers={downloads} />
         <GuiSection />
         <ModulesSection modules={modules} />
         {/* <VideoSection /> */}
