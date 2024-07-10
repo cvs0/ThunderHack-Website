@@ -1,6 +1,3 @@
-import useTotalUsers from "@/hooks/useTotalUsers";
-import { Skeleton } from "./ui/skeleton";
-
 const formatNumber = (number: number) => {
   if (number >= 1000000) {
     return (number / 1000000).toFixed(1) + "M";
@@ -11,9 +8,8 @@ const formatNumber = (number: number) => {
   }
 };
 
-const StatsSection = ({ downloads }: { downloads: number }) => {
-  const formattedDownloads = formatNumber(downloads);
-  const { totalUsersCount, error, isLoading } = useTotalUsers();
+const StatsSection = ({ allUsers, onlineUsers }: { allUsers: number, onlineUsers: number }) => {
+  const formattedAllUsers = formatNumber(allUsers);
 
   return (
     <section className="w-full py-12 md:py-24 lg:py-32 relative overflow-hidden">
@@ -22,17 +18,16 @@ const StatsSection = ({ downloads }: { downloads: number }) => {
           <div className="flex flex-col items-center">
             <h2 className="text-4xl font-bold tabular-nums animate-[counter_1s_ease-out_forwards] [counter-set:_num_var(--num)] before:content-[counter(num)]">
               <span className="supports-[counter-set]:sr-only">
-                {formattedDownloads}
+                {formattedAllUsers}
               </span>
               K+
             </h2>
-            <p className="text-lg text-gray-600">Downloads</p>
+            <p className="text-lg text-gray-600">Total Users</p>
           </div>
           <div className="flex flex-col items-center">
             <h2 className="text-4xl font-bold">
-              {isLoading ? <Skeleton className="h-10 w-20" /> : totalUsersCount}
+              {onlineUsers}
             </h2>
-
             <p className="text-lg text-gray-600">Active Users</p>
           </div>
           <div className="flex flex-col items-center">
@@ -49,7 +44,7 @@ const StatsSection = ({ downloads }: { downloads: number }) => {
               --num: 0;
             }
             to {
-              --num: ${downloads.toString().charAt(0)};
+              --num: ${allUsers.toString().charAt(0)};
             }
           }
         `}

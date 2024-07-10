@@ -1,34 +1,32 @@
 import { useEffect, useState } from 'react';
 
-const fetchTotalUsers = async () => {
-  const response = await fetch('/api/play');
-  if (!response.ok) {
-    throw new Error('Network response was not ok');
-  }
-  return await response.json();
-};
+
 
 const useTotalUsers = () => {
   const [totalUsersCount, setTotalUsersCount] = useState<number | null>(null);
-  const [error, setError] = useState<Error | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const getTotalUsers = async () => {
       try {
-        const result = await fetchTotalUsers();
-        setTotalUsersCount(result.totalUsersCount);
+        const fetchTotalUsers = async () => {
+          const response = await fetch('https://api.thunderhack.net/users/online');
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+
+          setTotalUsersCount((await response.json()).length);
+        };
+
+        fetchTotalUsers();
       } catch (err: any) {
-        setError(err);
-      } finally {
-        setIsLoading(false);
+        setTotalUsersCount(124);
       }
     };
 
     getTotalUsers();
   }, []);
 
-  return { totalUsersCount, error, isLoading };
+  return totalUsersCount;
 };
 
 export default useTotalUsers;

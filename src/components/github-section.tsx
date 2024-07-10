@@ -56,23 +56,17 @@ export default function GithubSection() {
           </p>
 
           <div className="flex gap-4 mt-6">
-            <Link href="">
+            <Link href="https://discord.gg/zqxNHVz3">
               <Button variant="outline" className="flex items-center gap-2">
-                <DiscIcon className="h-5 w-5" />
+                <DiscIcon className="text-purple-500 h-5 w-5" />
                 Discord
               </Button>
             </Link>
 
             <Link href="https://github.com/Pan4ur/ThunderHack-Recode">
               <Button variant="outline" className="flex items-center gap-2">
-                <GithubIcon className="h-5 w-5" />
+                <GithubIcon className="text-purple-500 h-5 w-5" />
                 GitHub
-              </Button>
-            </Link>
-
-            <Link href="">
-              <Button variant="outline" className="flex items-center gap-2">
-                <Twitter className="h-5 w-5" />X / Twitter
               </Button>
             </Link>
           </div>

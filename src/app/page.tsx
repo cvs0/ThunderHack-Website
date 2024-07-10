@@ -5,8 +5,9 @@ import GuiSection from "@/components/gui-section";
 import ModulesSection from "@/components/modules-section";
 import StatsSection from "@/components/stats-section";
 import VideoSection from "@/components/video-section";
-import useGitHubDownloads from "@/hooks/useGithubDownloads";
+import useAllUsers from "@/hooks/useAllUsers";
 import useModuleCount from "@/hooks/useModuleCount";
+import useTotalUsers from "@/hooks/useTotalUsers";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -22,7 +23,9 @@ const developers = [
 ];
 
 export default function Home() {
-  let downloads = useGitHubDownloads("Pan4ur", "thunderhack-recode");
+  let downloads = useAllUsers();
+  let onlineUsers = useTotalUsers();
+
   const repoUrl =
     "https://github.com/Pan4ur/ThunderHack-Recode/tree/main/src/main/java/thunder/hack/modules";
   const { loading, error, modules } = useModuleCount(repoUrl);
@@ -30,9 +33,6 @@ export default function Home() {
   if (!downloads) {
     downloads = 10;
   }
-
-  console.log(downloads);
-  console.log(modules);
 
   return (
     <div className="flex flex-col min-h-[100dvh]">
@@ -63,7 +63,7 @@ export default function Home() {
                     className="inline-flex h-10 items-center justify-center rounded-md border border-input bg-background px-8 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
                     prefetch={false}
                   >
-                    Learn More
+                    Documentation
                   </Link>
                 </div>
               </div>
@@ -78,10 +78,10 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <StatsSection downloads={downloads} />
+        <StatsSection onlineUsers={onlineUsers} allUsers={downloads} pr />
         <GuiSection />
         <ModulesSection modules={modules} />
-        <VideoSection />
+        {/* <VideoSection /> */}
         <GithubSection />
       </main>
     </div>

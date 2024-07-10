@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { CheckCircle } from "lucide-react";
+import { Code, FileDown, FolderInput, Rocket } from "lucide-react";
 
 const Download = () => {
   return (
@@ -19,7 +19,7 @@ const Download = () => {
               <button className="p-[3px] relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg" />
                 <div className="px-8 py-2 bg-black rounded-[6px] relative group transition duration-200 text-white hover:bg-transparent">
-                  Latest
+                  Fabric mod
                 </div>
               </button>
             </Link>
@@ -28,7 +28,7 @@ const Download = () => {
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <section className="py-10">
               <h2 className="text-2xl font-bold text-center">
-                About ThunderHack
+                About <span className="bg-gradient-to-r from-purple-500 to-sky-500 text-transparent bg-clip-text">ThunderHack</span>
               </h2>
               <p className="mt-4 text-center text-gray-700 dark:text-gray-200">
                 ThunderHack is a powerful tool designed to enhance your
@@ -38,29 +38,29 @@ const Download = () => {
             </section>
 
             <section className="py-10">
-              <h2 className="text-2xl font-bold text-center">Features</h2>
+              <h2 className="text-2xl font-bold text-center">How to install</h2>
               <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
                 <div className="flex items-center justify-center border border-gray-600 p-4 rounded-lg shadow-md">
-                  <CheckCircle className="text-green-500 w-6 h-6 mr-2" />
-                  Many Modules
+                  <FileDown className="text-purple-500 w-6 h-6 mr-2" />
+                  Download .jar file
                 </div>
                 <div className="flex items-center justify-center border border-gray-600 p-4 rounded-lg shadow-md">
-                  <CheckCircle className="text-green-500 w-6 h-6 mr-2" />
-                  Long Term Support
+                  <Code className="text-purple-500 w-6 h-6 mr-2" />
+                  Install fabric
                 </div>
                 <div className="flex items-center justify-center border border-gray-600 p-4 rounded-lg shadow-md">
-                  <CheckCircle className="text-green-500 w-6 h-6 mr-2" />
-                  Actively Maintained
+                  <FolderInput className="text-purple-500 w-6 h-6 mr-2" />
+                  Put .jar file in mods folder
                 </div>
                 <div className="flex items-center justify-center border border-gray-600 p-4 rounded-lg shadow-md">
-                  <CheckCircle className="text-green-500 w-6 h-6 mr-2" />
-                  Large Community
+                  <Rocket className="text-purple-500 w-6 h-6 mr-2" />
+                  Launch minecraft
                 </div>
               </div>
             </section>
 
             <section className="py-10">
-              <h2 className="text-2xl font-bold text-center">Have an issue?</h2>
+              <h2 className="text-2xl font-bold text-center">Have an <span className="bg-gradient-to-r from-red-500 to-pink-500 rounded-lg text-transparent bg-clip-text">issue?</span></h2>
               <div className="flex justify-center space-x-4 mt-4">
                 <Link
                   href="https://github.com/Pan4ur/ThunderHack-Recode/issues"
